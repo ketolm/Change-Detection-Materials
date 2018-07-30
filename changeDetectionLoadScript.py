@@ -109,8 +109,9 @@ def main(fCue,fStim,fInterval,fTest,fPause,tPerBlock,stimType,targChange,trialTy
         
         # STIM PRESENTATION
         randTrial = random.randint(1,100)
-        stimName  = 'stimType%d_trialType%d_cue%d_order%d (%d).png' % (stimType, trialType[t], cue[t], 0, randTrial)
-        stimDir      = '%d%d%d/' % (stimType, trialType[t], cue[t]) + stimName
+        # THIS IS 1920 X 1080 VERSION
+        stimName  = 'stimType%d_trialType%d_cue%d_order%d (%d)_resized.png' % (stimType, trialType[t], cue[t], 0, randTrial)
+        stimDir      = '%d%d%d_resized/' % (stimType, trialType[t], cue[t]) + stimName
         # presents cue
         for frameN in range(fCue + 1):
             fixation.draw()

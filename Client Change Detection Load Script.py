@@ -6,7 +6,7 @@ import pickle
 
 
 # PARTICIPANT'S INITIALS
-participant     = ''
+participant     = 'Yes'
 
 # WANT TO GET TO 8 AND 8
 rectangleBlocks = 0
@@ -20,10 +20,10 @@ cubeBlocks      = 0
 ################################
 if rectangleBlocks == 0 & cubeBlocks == 0:
     trials = generate_experiment()
-    with open(participant + 'ChangeDE','wb') as fp:
+    with open(participant + '_CDE','wb') as fp:
         pickle.dump(trials,fp)
 
-with open(participant + 'ChangeDE','rb') as fp:
+with open(participant + '_CDE','rb') as fp:
         trials = pickle.load(fp)
 
 
@@ -33,6 +33,8 @@ stimType   = 1
 blocks     = 2
 tPerBlock  = 2
 
+# THIS IS 1920 X 1080 RN
+
 
 # TIMING
 # each frame is 16.666667 ms
@@ -41,12 +43,6 @@ fStim      = 6   # 6   100 ms
 fInterval  = 54  # 54  900 ms
 fTest      = 120 # 120 2000 ms 
 fPause     = 60  # 60  1000 ms 
-
-# STIM SIZE
-recLength  = .09
-recWidth   = .27
-cubeLength = .25
-cubeWidth  = .25
 
 # TRIAL SEQUENCING
 # targChange: 0 if no change, 1 if change
@@ -63,7 +59,7 @@ for j in range(blocksDone * numTrials, numTrials + blocksDone * numTrials):
     cue.append(trials[j][2])
 print(len(targChange))
 
-block = main(fCue,fStim,fInterval,fTest,fPause,recLength,recWidth,cubeLength,cubeWidth,tPerBlock,stimType,targChange,trialType,cue,numTrials,blocks)
+block = main(fCue,fStim,fInterval,fTest,fPause,tPerBlock,stimType,targChange,trialType,cue,numTrials,blocks)
 
 
 
